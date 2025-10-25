@@ -7,14 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        echo $_SERVER["DOCUMENT_ROOT"];
-        echo "<br>";
-        echo $_SERVER["PHP_SELF"];
-        echo "<br>";
-        echo $_SERVER["SERVER_NAME"];
-        echo "<br>";
-        echo $_SERVER["REQUEST_METHOD"];
-    ?>
+    <main>
+        <form action="includes/formhandler.php" method="post">
+            <label for="firstname">Firstname?</label>
+            <input id="firstname" type="text" name="firstname" placeholder="Firstname...">
+
+            <label for="lastname">Lastname?</label>
+            <input id="lastname" type="text" name="lastname" placeholder="Lastname...">
+
+            <label for="favouritepet">Favourite Pet?</label>
+            <select id="favouritepet" name="favouritepet">
+                <option value="none">None</option>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+            </select>
+
+            <button type="submit" name="submit">Submit</button>
+        </form>
+    </main>
 </body>
 </html>
