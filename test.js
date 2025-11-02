@@ -6,10 +6,15 @@ const url = require('url')
 //server
 const server = http
   .createServer((req, res) => {
-    console.log('Request URL:', req.url)
-    res.writeHead(200, { 'Content-Type': 'text/plain' })
-
-    res.end('Hello World\n')
+    const pathName = req.url
+    if (pathName === '/home' || pathName === '/') {
+      res.end('This is the Home Page\n')
+    } else if (pathName === '/about') {
+      res.end('This is the About Page\n')
+    } else {
+      res.writeHead(404, { 'Content-type': 'text/html' })
+      res.end('<h1>404 Page Not Found</h1>\n')
+    }
   })
   .listen(3000, () => {
     console.log('Server running at http://localhost:3000/')
